@@ -8,8 +8,8 @@ public class Main {
         System.out.println("--- School Attendance System ---");
 
         Student[] students = new Student[2];
-        students[0] = new Student("Alice Smith");
-        students[1] = new Student("Bob Johnson");
+        students[0] = new Student("Alice Smith", "Grade 10");
+        students[1] = new Student("Bob Johnson", "Grade 11");
 
         Course[] courses = new Course[2];
         courses[0] = new Course("Intro to Programming");
@@ -19,6 +19,14 @@ public class Main {
         for (Student student : students) {
             if (student != null) student.displayDetails();
         }
+        Teacher teacher = new Teacher("Dr. Jane Doe", "Mathematics");
+        Staff staff = new Staff("Michael Scott", "Administrator");
+
+        System.out.println("\nRegistered Teacher:");
+        teacher.displayDetails();
+
+        System.out.println("\nStaff Member:");
+        staff.displayDetails();
 
         System.out.println("\nAvailable Courses:");
         for (Course course : courses) {
@@ -26,8 +34,8 @@ public class Main {
         }
         System.out.println("\nSession 2: Core Domain Modelling Complete.");
         ArrayList<AttendanceRecord> attendanceLog = new ArrayList<>();
-        attendanceLog.add(new AttendanceRecord(students[0].getStudentId(), courses[0].getCourseId(), "Present"));
-        attendanceLog.add(new AttendanceRecord(students[1].getStudentId(), courses[1].getCourseId(), "absents"));
+        attendanceLog.add(new AttendanceRecord(students[0].getId(), courses[0].getCourseId(), "Present"));
+        attendanceLog.add(new AttendanceRecord(students[1].getId(), courses[1].getCourseId(), "Absent"));
         for (AttendanceRecord record : attendanceLog) {
             if (record != null) record.displayDetails();
         }
