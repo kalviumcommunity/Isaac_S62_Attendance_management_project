@@ -1,6 +1,6 @@
 package com.school;
 
-public class AttendanceRecord {
+public class AttendanceRecord implements Storable {
     private int StudentId;
     private int CourseId;
     private String status;
@@ -13,6 +13,11 @@ public class AttendanceRecord {
         else{
             this.status = status;
         }
+    }
+
+    @Override
+    public String toDataString() {
+        return "AttendanceRecord," + StudentId + "," + CourseId + "," + status;
     }
     public int getStudentId() {
         return StudentId;
